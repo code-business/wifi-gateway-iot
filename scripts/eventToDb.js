@@ -17,5 +17,5 @@ const eventToDb = async (event) => {
   }
 };
 
-// exports.handler = eventToDb;
-eventToDb({});
+exports.handler = eventToDb;
+// eventToDb({});
