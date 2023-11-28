@@ -6,7 +6,7 @@ let cachedDb = null;
  * @returns {Promise<Db>} -Promise of type Db instance
  */
 async function connectToDatabase() {
-  const uri = process.env.MONGODB_URL;
+  const uri = process.env.MONGO_URL;
   try {
     if (cachedDb == null) {
       const client = await MongoClient.connect(uri, {
