@@ -1,0 +1,18 @@
+service: wifi-gateway-iot-lambda
+frameworkVersion: "3"
+plugins:
+  - serverless-dotenv-plugin
+provider:
+  name: aws
+  runtime: nodejs18.x
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - lambda:InvokeFunction
+        - execute-api:Invoke
+        - execute-api:ManageConnections
+      Resource: "*"
+functions:
+  robustelMongo:
+    name: iot-eventToDb
+    handler: scripts/eventToDb.handler
