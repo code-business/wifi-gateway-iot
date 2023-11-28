@@ -5,6 +5,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs18.x
+  region: ap-south-1
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -13,6 +14,5 @@ provider:
         - execute-api:ManageConnections
       Resource: "*"
 functions:
-  robustelMongo:
-    name: iot-eventToDb
+  iot-eventToDb:
     handler: scripts/eventToDb.handler
