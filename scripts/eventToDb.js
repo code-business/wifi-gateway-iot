@@ -9,6 +9,7 @@ const eventToDb = async (event) => {
       lon: event?.Longitude.toString(),
       timestamp: Date.now(),
       deviceId: "prototype",
+      steps: event["Step count"].toString(),
     };
     await db.collection("timeline").insertOne(document);
   } catch (error) {
