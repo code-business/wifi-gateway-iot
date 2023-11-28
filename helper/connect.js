@@ -1,18 +1,19 @@
 require("dotenv").config();
-const { MongoClient, Db } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 let cachedDb = null;
-/**
- * @returns {Promise<Db>} -Promise of type Db instance
- */
+
 async function connectToDatabase() {
   const uri = process.env.MONGO_URL;
   try {
     if (cachedDb == null) {
-      const client = await MongoClient.connect(uri, {
+      console.log("uri", uri);
+      const client = new MongoClient(uri, {
         connectTimeoutMS: 60000,
         serverSelectionTimeoutMS: 5000,
       });
+
+      await client.connect();
       cachedDb = client.db(process.env.DB_NAME);
       return cachedDb;
     }

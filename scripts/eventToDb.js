@@ -18,4 +18,5 @@ const eventToDb = async (event) => {
 };
 
 exports.handler = eventToDb;
-// eventToDb({});
+
+// eventToDb({ Latitude: 46.360001, Longitude: -113.536598, "Step count": 102 });
