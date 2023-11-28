@@ -11,7 +11,6 @@ const eventToDb = async (event) => {
       deviceId: "prototype",
     };
     await db.collection("timeline").insertOne(document);
-    console.log("Testing Lambda Setup", event);
   } catch (error) {
     console.log("Error", error);
   }
